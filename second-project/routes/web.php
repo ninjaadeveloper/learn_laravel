@@ -18,8 +18,9 @@ Route::view('/learn', 'learn');
 // Route::view('/user','user');
 
 Route::get('/user/{username}',function(){
-    // return '<h1>Hello from user</h1>';
+   
     return view('user');
+
 });
 
 

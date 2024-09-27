@@ -52,7 +52,7 @@
             <li> {{$key}} - {{ $std }}</li>
         @endforeach
     </ol>
-
+  
 
     
 
