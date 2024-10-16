@@ -13,4 +13,26 @@ class personController extends Controller
         // return $personData;
         return view('person.index', ["data" => $personData]);
     }
+
+    public function savePerson(Request $req)
+    {
+
+        $person = DB::table('persons')->insert(
+            [
+                'name' => $req->name,
+                'email' => $req->email,
+                'salary' => $req->salary,
+                'mobile' => $req->mobile,
+                'age' => $req->age
+            ]
+        );
+
+        if ($person) {
+            // return 'Data Saved';
+
+            return '<script>window.location.href="/"</script>';
+        } else {
+            return 'Error';
+        }
+    }
 }
