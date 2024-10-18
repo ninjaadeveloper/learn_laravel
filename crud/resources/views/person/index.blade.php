@@ -16,6 +16,7 @@
                         <th>Email</th>
                         <th>Salary</th>
                         <th>Mobile</th>
+                        <th>Action</th>
                     </thead>
 
                     <tbody>
@@ -27,6 +28,11 @@
                                 <td>{{ $person->email }}</td>
                                 <td>{{ $person->salary }}</td>
                                 <td>{{ $person->mobile }}</td>
+                                <td>
+                                    <a href={{ Route('edit', $person->id) }} class="btn btn-outline-success">
+                                        Edit
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                         <tr></tr>

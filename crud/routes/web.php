@@ -8,10 +8,15 @@ use App\Http\Controllers\personController;
 // });
 
 
-Route::get('/', [personController::class, 'showPerson']);
+Route::get('/', [personController::class, 'showPerson'])->name('home');
 
-Route::get('/save', [personController::class, 'savePerson'])->name('save');
+Route::post('/save', [personController::class, 'savePerson'])->name('save');
 
 
 
 Route::view('/addUser', 'person.form')->name('add');
+// Route::view('/edit/{id}', 'person.editUser')->name('edit');
+
+Route::get('/edit/{id}',[personController::class, 'editPerson'])->name('edit');
+
+Route::get('/update',[personController::class, 'updatePerson'])->name('update');

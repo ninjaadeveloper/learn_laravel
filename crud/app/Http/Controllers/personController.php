@@ -30,9 +30,38 @@ class personController extends Controller
         if ($person) {
             // return 'Data Saved';
 
-            return '<script>window.location.href="/"</script>';
+            // return '<script>window.location.href="/"</script>';
+            return redirect()->route('home');
         } else {
             return 'Error';
+        }
+    }
+
+    public function editPerson(Request $req)
+    {
+        $singlePerson = DB::table('persons')->where('id', $req->id)->get();
+
+        // return $singlePerson;
+        return view('person.editUser', ["data" => $singlePerson]);
+    }
+
+    public function updatePerson(Request $req)
+    {
+
+        $updateUser = DB::table('persons')->where('id', $req->id)->update(
+            [
+                'name' => $req->name,
+                'email' => $req->email,
+                'salary' => $req->salary,
+                'mobile' => $req->mobile,
+                'age' => $req->age
+            ]
+        );
+
+        if ($updateUser) {
+            return redirect()->route('home');
+        } else {
+            return 'Error'; 
         }
     }
 }
