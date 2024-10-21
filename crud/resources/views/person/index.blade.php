@@ -28,10 +28,13 @@
                                 <td>{{ $person->email }}</td>
                                 <td>{{ $person->salary }}</td>
                                 <td>{{ $person->mobile }}</td>
-                                <td>
+                                <td class="d-flex">
+                                    <a href="" class="btn btn-outline-primary"> View </a>&nbsp;
                                     <a href={{ Route('edit', $person->id) }} class="btn btn-outline-success">
                                         Edit
                                     </a>
+                                    &nbsp;
+                                    <a href={{ Route('delete', $person->id) }} class="btn btn-outline-danger">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

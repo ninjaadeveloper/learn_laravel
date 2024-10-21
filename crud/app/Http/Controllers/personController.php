@@ -61,7 +61,19 @@ class personController extends Controller
         if ($updateUser) {
             return redirect()->route('home');
         } else {
-            return 'Error'; 
+            return 'Error';
+        }
+    }
+
+    public function deletePerson(String $id)
+    {
+        $delete  = DB::table('persons')->where('id',$id)->delete();
+        // return $id;
+
+        if($delete){
+            return redirect()->route('home');
+        }else{
+            return 'An Error Occurd';
         }
     }
 }
