@@ -13,6 +13,7 @@
                         <th>S.No</th>
                         <th>Name</th>
                         <th>Age</th>
+                        <th>Image</th>
                         <th>Email</th>
                         <th>Salary</th>
                         <th>Mobile</th>
@@ -25,6 +26,10 @@
                                 <td>{{ $person->id }}</td>
                                 <td>{{ $person->name }}</td>
                                 <td>{{ $person->age }}</td>
+                                <td>
+                                    <img src="uploads/{{ $person->image }}" alt={{ $person->name }} height="80"
+                                        width="auto">
+                                </td>
                                 <td>{{ $person->email }}</td>
                                 <td>{{ $person->salary }}</td>
                                 <td>{{ $person->mobile }}</td>

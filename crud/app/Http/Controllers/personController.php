@@ -16,6 +16,12 @@ class personController extends Controller
 
     public function savePerson(Request $req)
     {
+        $req->validate([
+            'file' => 'required|mimes:jpg,jpeg,png,webp|max:3000',
+        ]);
+
+        $fileName = time() . '.' . $req->file->extension();
+        $req->file->move(public_path('uploads'), $fileName);
 
         $person = DB::table('persons')->insert(
             [
@@ -23,14 +29,13 @@ class personController extends Controller
                 'email' => $req->email,
                 'salary' => $req->salary,
                 'mobile' => $req->mobile,
+                'image' => $fileName,
                 'age' => $req->age
             ]
         );
 
         if ($person) {
             // return 'Data Saved';
-
-            // return '<script>window.location.href="/"</script>';
             return redirect()->route('home');
         } else {
             return 'Error';
@@ -67,12 +72,12 @@ class personController extends Controller
 
     public function deletePerson(String $id)
     {
-        $delete  = DB::table('persons')->where('id',$id)->delete();
+        $delete  = DB::table('persons')->where('id', $id)->delete();
         // return $id;
 
-        if($delete){
+        if ($delete) {
             return redirect()->route('home');
-        }else{
+        } else {
             return 'An Error Occurd';
         }
     }
