@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Traits\Timestamp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,7 +31,9 @@ class personController extends Controller
                 'salary' => $req->salary,
                 'mobile' => $req->mobile,
                 'image' => $fileName,
-                'age' => $req->age
+                'age' => $req->age,
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         );
 

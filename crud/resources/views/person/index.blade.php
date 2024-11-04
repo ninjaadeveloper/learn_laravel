@@ -23,7 +23,7 @@
                     <tbody>
                         @foreach ($data as $person)
                             <tr>
-                                <td>{{ $person->id }}</td>
+                                <td>{{ $person->id }}</td> 
                                 <td>{{ $person->name }}</td>
                                 <td>{{ $person->age }}</td>
                                 <td>
