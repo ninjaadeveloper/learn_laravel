@@ -27,7 +27,11 @@ class userController extends Controller
 
     public function loginUser(Request $req)
     {
-
+         // if(Auth::check()){
+        //     return view('user.index');
+        // }else{
+        //     return 'not login';
+        // }
 
         $cred = $req->validate([
             'email' => 'required|string',
@@ -37,12 +41,15 @@ class userController extends Controller
         $login = Auth::attempt($cred);
 
         return view('user.index');
+
+
+       
+
     }
     public function logoutUser(Request $req)
     {
 
         Auth::logout();
-
         return view('welcome');
     }
 }

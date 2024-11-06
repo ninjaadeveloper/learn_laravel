@@ -13,6 +13,9 @@
 
     {{ Auth::user() }}
 
+    {{-- @if (Auth::check() )
+        
+    @endif --}}
 
 
   <form action="/logout" method="POST">

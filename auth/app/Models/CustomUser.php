@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class CustomUser extends Authenticatable
 {
+
+    
     protected $table = 'myusers'; // Specify your custom table name
 
     protected $fillable = [
